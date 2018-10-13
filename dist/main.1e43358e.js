@@ -64352,7 +64352,20 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Admin).call(this, props));
     _this.state = {
-      user: _this.props.user
+      user: _this.props.user,
+      guestList: [{
+        name: 'Molly',
+        info: 'poop',
+        status: 'maybe'
+      }, {
+        name: 'Jim',
+        info: 'poop',
+        status: 'yes'
+      }, {
+        name: 'Hector',
+        info: 'poop',
+        status: 'no'
+      }]
     };
     return _this;
   }
@@ -64370,42 +64383,82 @@ function (_Component) {
         divided: true,
         padded: true
       }, _react.default.createElement(_semanticUiReact.Grid.Row, null, _react.default.createElement(_semanticUiReact.Grid.Column, {
-        width: 9
-      }, _react.default.createElement(_semanticUiReact.List, {
+        width: 8
+      }, _react.default.createElement(_semanticUiReact.Segment, null, _react.default.createElement(_semanticUiReact.Header, {
+        textAlign: "center",
+        as: "h3"
+      }, "Guest List"), _react.default.createElement(_semanticUiReact.List, {
         divided: true,
         verticalAlign: "middle"
-      }, _react.default.createElement(_semanticUiReact.List.Item, null, _react.default.createElement(_semanticUiReact.List.Content, {
-        floated: "right"
+      }, _react.default.createElement(_semanticUiReact.List.Item, null, _react.default.createElement(_semanticUiReact.List.Content, null, _react.default.createElement(_semanticUiReact.Input, {
+        placeholder: "Invite New Guest"
+      }), _react.default.createElement(_semanticUiReact.Button, {
+        animated: true
+      }, _react.default.createElement(_semanticUiReact.Button.Content, {
+        visible: true
+      }, "ADD"), _react.default.createElement(_semanticUiReact.Button.Content, {
+        hidden: true
       }, _react.default.createElement(_semanticUiReact.Icon, {
-        name: "plus circle"
-      })), _react.default.createElement(_semanticUiReact.List.Content, null, "Invite Guest")), _react.default.createElement(_semanticUiReact.List.Item, null, _react.default.createElement(_semanticUiReact.List.Content, {
-        floated: "right"
-      }, _react.default.createElement(_semanticUiReact.Icon, {
-        name: "frown",
-        color: "red"
-      }), _react.default.createElement(_semanticUiReact.Icon, {
-        name: "x"
-      }), _react.default.createElement(_semanticUiReact.Icon, {
-        name: "pencil"
-      })), _react.default.createElement(_semanticUiReact.List.Content, null, "Lindsay")), _react.default.createElement(_semanticUiReact.List.Item, null, _react.default.createElement(_semanticUiReact.List.Content, {
-        floated: "right"
-      }, _react.default.createElement(_semanticUiReact.Icon, {
-        name: "smile",
-        color: "green"
-      })), _react.default.createElement(_semanticUiReact.List.Content, null, "Mark")), _react.default.createElement(_semanticUiReact.List.Item, null, _react.default.createElement(_semanticUiReact.List.Content, {
-        floated: "right"
-      }, _react.default.createElement(_semanticUiReact.Icon, {
-        name: "meh",
-        color: "yellow"
-      })), _react.default.createElement(_semanticUiReact.List.Content, null, "Molly")))), _react.default.createElement(_semanticUiReact.Grid.Column, {
-        width: 6
-      }, _react.default.createElement(_semanticUiReact.Segment, null, "Info")))), _react.default.createElement(_semanticUiReact.Grid, {
+        name: "plus"
+      }))))), this.state.guestList.map(function (guest, i) {
+        var status;
+        var color;
+
+        if (guest.status === 'yes') {
+          status = 'smile';
+          color = 'green';
+        }
+
+        if (guest.status === 'no') {
+          status = 'frown';
+          color = 'red';
+        }
+
+        if (guest.status === 'maybe') {
+          status = 'meh';
+          color = 'yellow';
+        }
+
+        return _react.default.createElement(_semanticUiReact.List.Item, null, _react.default.createElement(_semanticUiReact.List.Content, {
+          floated: "right"
+        }, _react.default.createElement(_semanticUiReact.Icon, {
+          name: status,
+          color: color
+        }), _react.default.createElement(_semanticUiReact.Icon, {
+          name: "pencil"
+        }), _react.default.createElement(_semanticUiReact.Icon, {
+          name: "x"
+        })), _react.default.createElement(_semanticUiReact.List.Content, null, guest.name));
+      })))), _react.default.createElement(_semanticUiReact.Grid.Column, {
+        width: 8
+      }, _react.default.createElement(_semanticUiReact.Segment, null, _react.default.createElement(_semanticUiReact.Header, {
+        as: "h3",
+        textAlign: "center"
+      }, "EVENT INFO"), _react.default.createElement(_semanticUiReact.List, null, _react.default.createElement(_semanticUiReact.List.Item, {
+        icon: "building",
+        content: "House of God Chapel"
+      }), _react.default.createElement(_semanticUiReact.List.Item, {
+        icon: "marker",
+        content: "568 Lords Way, Compton, CA"
+      }), _react.default.createElement(_semanticUiReact.List.Item, {
+        icon: "clock",
+        content: "4:30 p.m."
+      })))))), _react.default.createElement(_semanticUiReact.Grid, {
         columns: 3,
         divided: true,
         padded: true
       }, _react.default.createElement(_semanticUiReact.Grid.Row, {
         stretched: true
-      }, _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, null, "ToDO")), _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, null, "APPTS")), _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, null, "EDIT")))));
+      }, _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, null, _react.default.createElement(_semanticUiReact.Header, {
+        as: "h3",
+        textAlign: "center"
+      }, "TO DO"))), _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, null, _react.default.createElement(_semanticUiReact.Header, {
+        as: "h3",
+        textAlign: "center"
+      }, "APPOINTMENTS"))), _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, null, _react.default.createElement(_semanticUiReact.Header, {
+        as: "h3",
+        textAlign: "center"
+      }, "EDIT PAGE"))))));
     }
   }]);
 
