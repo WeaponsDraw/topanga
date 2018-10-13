@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Button, Comment, Form, Header, Image, Grid, Segment, List, Icon, Input, TextArea, Modal, Checkbox, Divider } from 'semantic-ui-react'
+import { Button, Comment, Form, Header, Image, Grid, Segment, List, Icon, Input, TextArea, Modal, Checkbox, Divider, Feed } from 'semantic-ui-react'
 
 class Admin extends Component{
   constructor(props) {
@@ -94,7 +94,7 @@ class Admin extends Component{
             <Grid.Column>
               <Segment>
                 <Header as='h3' textAlign='center'>TO DO</Header>
-                <Modal trigger={<Button>ADD TO DO</Button>} closeIcon>
+                <Modal trigger={<Button>CREATE TO DO</Button>} closeIcon>
                   <Header icon='sticky note' content='ADD NEW TO DO' />
                   <Modal.Content>
                    <Form>
@@ -151,14 +151,154 @@ class Admin extends Component{
             <Grid.Column>
               <Segment>
                 <Header as='h3' textAlign='center'>APPOINTMENTS</Header>
+                <Modal trigger={<Button>CREATE APPOINTMENT</Button>} closeIcon>
+                  <Header icon='calendar alternate outline' content='ADD NEW APPOINTMENT' />
+                  <Modal.Content>
+                   <Form>
+                     <Form.Group widths='equal'>
+                    <Form.Field
+                      id='form-input-control-title'
+                      control={Input}
+                      label='Title'
+                      placeholder='Title'
+                      width={6}
+                    />
+                    <Form.Field
+                      id='form-textarea-control-date'
+                      control={Input}
+                      label='Date'
+                      placeholder='Date'
+                      width={6}
+                    />
+                    <Form.Field
+                      id='form-textarea-control-time'
+                      control={Input}
+                      label='Time'
+                      placeholder='Time'
+                      width={6}
+                    />
+                    </Form.Group>
+                    <Form.Group widths='equal'>
+                    <Form.Field
+                      id='form-textarea-control-location'
+                      control={Input}
+                      label='Location'
+                      placeholder='Location'
+                      width={6}
+                    />
+                    <Form.Field
+                      id='form-textarea-control-phone'
+                      control={Input}
+                      label='Phone Number'
+                      placeholder='Phone Number'
+                      width={6}
+                    />
+                    </Form.Group>
+                    <Form.Field
+                      id='form-button-control-public'
+                      control={Button}
+                      content='Submit'
+                    />
+                </Form>
+                  </Modal.Content>
+                </Modal>
+                <List>
+                  
+                  <List.Item as='a'>
+                    <Icon name='x' />
+                    <List.Content>
+                      <List.Header>Ted's Bakery</List.Header>
+                      <List.Description>
+                        <Icon name='calendar alternate'/>
+                        11-13-18
+                      </List.Description>
+                      <List.Description>
+                        <Icon name='clock'/>
+                        11:30 a.m.
+                      </List.Description>
+                      <List.Description>
+                        <Icon name='location arrow'/>
+                        1313 Cake Way, Seattle, WA
+                      </List.Description>
+                      <List.Description>
+                        <Icon name='phone'/>
+                        206-555-5555
+                      </List.Description>
+                    </List.Content>
+                  </List.Item>
+                  <Divider />
+                </List>
               </Segment>
             </Grid.Column>
             <Grid.Column>
               <Segment >
-                <Header as='h3' textAlign='center'>EDIT PAGE</Header>
+                <Header as='h3' textAlign='center'>ACTIVITY</Header>
+                <Feed>
+                  <Feed.Event>
+                    <Feed.Label>
+                      <img src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg' />
+                    </Feed.Label>
+                    <Feed.Content>
+                      <Feed.Summary>
+                        <Feed.User>Kaiser</Feed.User> added <a>A New Guest</a>
+                        <Feed.Date>1 Hour Ago</Feed.Date>
+                      </Feed.Summary>
+                    </Feed.Content>
+                  </Feed.Event>
+
+                  <Feed.Event>
+                    <Feed.Label image='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />
+                    <Feed.Content>
+                      <Feed.Summary>
+                        <a>Nala</a> added <a>A New Appointment</a>
+                        <Feed.Date>4 days ago</Feed.Date>
+                      </Feed.Summary>
+                    </Feed.Content>
+                  </Feed.Event>
+                  </Feed>
+                  <Feed>
+                  <Feed.Event>
+                    <Feed.Label image='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />
+                    <Feed.Content>
+                      <Feed.Summary>
+                        <a>Nala</a> deleted <a>A Guest</a>
+                        <Feed.Date>7 days ago</Feed.Date>
+                      </Feed.Summary>
+                    </Feed.Content>
+                  </Feed.Event>
+                  </Feed>
               </Segment>
             </Grid.Column>
           </Grid.Row>
+        </Grid>
+        <Grid centered columns={1} padded>
+        <Grid.Column width={8}>
+          <Segment>
+            <Comment.Group>
+              <Header as='h3'>
+                Comments
+              </Header>
+              <Divider width={16} />
+              <Comment>
+                <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg' />
+                <Comment.Content>
+                  <Comment.Author as='a'>Kaiser</Comment.Author>
+                  <Comment.Metadata>
+                    <div>Today at 5:42PM</div>
+                  </Comment.Metadata>
+                  <Comment.Text>I am so excited!!!!!</Comment.Text>
+                  <Comment.Actions>
+                    <Comment.Action>Reply</Comment.Action>
+                  </Comment.Actions>
+                </Comment.Content>
+              </Comment>
+              <Form reply>
+                <Form.TextArea />
+                <Button content='Add Reply' labelPosition='left' icon='edit' primary />
+              </Form>
+            </Comment.Group>
+          </Segment>
+        </Grid.Column>
         </Grid>
       </Fragment>
     )
