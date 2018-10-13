@@ -64452,7 +64452,40 @@ function (_Component) {
       }, _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, null, _react.default.createElement(_semanticUiReact.Header, {
         as: "h3",
         textAlign: "center"
-      }, "TO DO"))), _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, null, _react.default.createElement(_semanticUiReact.Header, {
+      }, "TO DO"), _react.default.createElement(_semanticUiReact.Modal, {
+        trigger: _react.default.createElement(_semanticUiReact.Button, null, "ADD TO DO"),
+        closeIcon: true
+      }, _react.default.createElement(_semanticUiReact.Header, {
+        icon: "sticky note",
+        content: "ADD NEW TO DO"
+      }), _react.default.createElement(_semanticUiReact.Modal.Content, null, _react.default.createElement(_semanticUiReact.Form, null, _react.default.createElement(_semanticUiReact.Form.Field, {
+        id: "form-input-control-title",
+        control: _semanticUiReact.Input,
+        label: "Title",
+        placeholder: "Title",
+        width: 6
+      }), _react.default.createElement(_semanticUiReact.Form.Field, {
+        id: "form-textarea-control-description",
+        control: _semanticUiReact.TextArea,
+        label: "Description",
+        placeholder: "description"
+      }), _react.default.createElement(_semanticUiReact.Form.Field, {
+        id: "form-button-control-public",
+        control: _semanticUiReact.Button,
+        content: "Submit"
+      })))), _react.default.createElement(_semanticUiReact.List, null, _react.default.createElement(_semanticUiReact.List.Item, {
+        as: "a"
+      }, _react.default.createElement(_semanticUiReact.Icon, {
+        name: "right triangle"
+      }), _react.default.createElement(_semanticUiReact.List.Content, null, _react.default.createElement(_semanticUiReact.List.Header, null, "Cake"), _react.default.createElement(_semanticUiReact.List.Description, null, "Pick out a Cake."), _react.default.createElement(_semanticUiReact.Checkbox, {
+        label: "Completed"
+      }))), _react.default.createElement(_semanticUiReact.Divider, null), _react.default.createElement(_semanticUiReact.List.Item, {
+        as: "a"
+      }, _react.default.createElement(_semanticUiReact.Icon, {
+        name: "right triangle"
+      }), _react.default.createElement(_semanticUiReact.List.Content, null, _react.default.createElement(_semanticUiReact.List.Header, null, "Pick Out a Venue"), _react.default.createElement(_semanticUiReact.List.Description, null, "We need to find a venue, possible locations are the beach, the mountain, the lake, the interstate."), _react.default.createElement(_semanticUiReact.Checkbox, {
+        label: "Completed"
+      })))))), _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, null, _react.default.createElement(_semanticUiReact.Header, {
         as: "h3",
         textAlign: "center"
       }, "APPOINTMENTS"))), _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, null, _react.default.createElement(_semanticUiReact.Header, {

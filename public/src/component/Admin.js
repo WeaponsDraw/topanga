@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Button, Comment, Form, Header, Image, Grid, Segment, List, Icon, Input } from 'semantic-ui-react'
+import { Button, Comment, Form, Header, Image, Grid, Segment, List, Icon, Input, TextArea, Modal, Checkbox, Divider } from 'semantic-ui-react'
 
 class Admin extends Component{
   constructor(props) {
@@ -94,6 +94,58 @@ class Admin extends Component{
             <Grid.Column>
               <Segment>
                 <Header as='h3' textAlign='center'>TO DO</Header>
+                <Modal trigger={<Button>ADD TO DO</Button>} closeIcon>
+                  <Header icon='sticky note' content='ADD NEW TO DO' />
+                  <Modal.Content>
+                   <Form>
+                    <Form.Field
+                      id='form-input-control-title'
+                      control={Input}
+                      label='Title'
+                      placeholder='Title'
+                      width={6}
+                    />
+                    <Form.Field
+                      id='form-textarea-control-description'
+                      control={TextArea}
+                      label='Description'
+                      placeholder='description'
+                    />
+                    <Form.Field
+                      id='form-button-control-public'
+                      control={Button}
+                      content='Submit'
+                    />
+                </Form>
+                  </Modal.Content>
+                </Modal>
+                <List>
+                  
+                  <List.Item as='a'>
+                    <Icon name='right triangle' />
+                    <List.Content>
+                      <List.Header>Cake</List.Header>
+                      <List.Description>
+                        Pick out a Cake.
+                      </List.Description>
+                      <Checkbox label='Completed' />
+                    </List.Content>
+                  </List.Item>
+                  <Divider />
+                   <List.Item as='a'>
+                    <Icon name='right triangle' />
+                    <List.Content>
+                      <List.Header>Pick Out a Venue</List.Header>
+                      <List.Description>
+                        We need to find a venue, possible locations are the beach, the mountain, the lake, the interstate.
+                      </List.Description>
+                      <Checkbox label='Completed' />
+                    </List.Content>
+                  </List.Item>
+                  
+                </List>
+
+
               </Segment>
             </Grid.Column>
             <Grid.Column>
