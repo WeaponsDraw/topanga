@@ -55,15 +55,15 @@ class Admin extends Component{
                 {this.state.guestList.map((guest, i) => {
                   let status;
                   let color;
-                  if(guest.status === 'yes'){
+                  if(guest.rsvp.responded === 'yes'){
                     status = 'smile';
                     color = 'green';
                   }
-                  if(guest.status === 'no'){
+                  if(guest.rsvp.responded === 'no'){
                     status = 'frown';
                     color = 'red';
                   }
-                  if(guest.status === 'maybe'){
+                  if(guest.rsvp.responded === 'maybe'){
                     status = 'meh';
                     color = 'yellow'
                   }
@@ -85,8 +85,8 @@ class Admin extends Component{
                 <Header as='h3' textAlign='center'>EVENT INFO</Header>
                 <List>
                   <List.Item icon='building' content='House of God Chapel' />
-                  <List.Item icon='marker' content='568 Lords Way, Compton, CA' />
-                  <List.Item icon ='clock' content='4:30 p.m.'/>
+                  <List.Item icon='marker' content='231 Finish Ave, Seattle, WA' />
+                  <List.Item icon ='clock' content='5:00 p.m.'/>
                 </List>
               </Segment>
             </Grid.Column>
@@ -287,7 +287,7 @@ class Admin extends Component{
                 <Comment.Content>
                   <Comment.Author as='a'>Kaiser</Comment.Author>
                   <Comment.Metadata>
-                    <div>Today at 5:42PM</div>
+                    <div>Today at 8:35AM</div>
                   </Comment.Metadata>
                   <Comment.Text>I am so excited!!!!!</Comment.Text>
                   <Comment.Actions>

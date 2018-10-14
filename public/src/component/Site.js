@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
+import axios from 'axios'
 import { Image, Header, Grid, Container, Divider, GridColumn, GridRow } from 'semantic-ui-react'
+
 
 import RSVP from './RSVP'
 import Registry from './Registry'
@@ -15,6 +17,11 @@ class Site extends Component {
       rsvp: ''
     }
   }
+
+  componentDidMount(){
+
+  }
+  
   render() {
     return (
       <Fragment>
