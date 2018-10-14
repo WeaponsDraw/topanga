@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Button, Comment, Form, Header, Image, Grid, Segment, List, Icon, Input, TextArea, Modal, Checkbox, Divider, Feed } from 'semantic-ui-react'
 
+import AddGuestButton from './AddGuestButton'
+import NavBar from './NavBar'
 class Admin extends Component{
   constructor(props) {
     super(props)
@@ -28,27 +30,14 @@ class Admin extends Component{
   render(){
     return(
       <Fragment>
-        <Header as='h2'>
-          <Image circular src='https://laughingsquid.com/wp-content/uploads/2013/11/tumblr_mvpn9b8Bg51sow2azo1_500.jpg' /> NalaKaiser
-        </Header>
+        <NavBar/>
         <Grid columns={2} divided padded>
           <Grid.Row >
             <Grid.Column width={8}>
               <Segment>
                <Header textAlign='center' as='h3'>Guest List</Header>
+               <AddGuestButton/> 
                <List divided verticalAlign='middle'>
-                <List.Item>
-                  
-                  <List.Content>
-                    <Input placeholder='Invite New Guest'/>
-                    <Button animated>
-                     <Button.Content visible>ADD</Button.Content>
-                    <Button.Content hidden>
-                      <Icon name='plus' />
-                    </Button.Content>
-                   </Button>
-                  </List.Content>
-                </List.Item>
                 {this.state.guestList.map((guest, i) => {
                   let status;
                   let color;
