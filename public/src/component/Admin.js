@@ -4,47 +4,35 @@ import { Button, Comment, Form, Header, Image, Grid, Segment, List, Icon, Input,
 import AddGuestButton from './AddGuestButton'
 import NavBar from './NavBar'
 import EditSite from './EditSite'
+import axios from 'axios'
 class Admin extends Component{
   constructor(props) {
     super(props)
     this.state = {
       view: 'Dashboard',
       user: this.props.user,
-      guestList: [
-        {
-          name: 'Molly',
-          info: 'poop',
-          status: 'maybe'
-        },
-        {
-          name: 'Jim',
-          info: 'poop',
-          status: 'yes'
-        },
-        {
-          name: 'Hector',
-          info: 'poop',
-          status: 'no'
-        },
-        {
-          name: 'Molly',
-          info: 'poop',
-          status: 'maybe'
-        },
-        {
-          name: 'Jim',
-          info: 'poop',
-          status: 'yes'
-        },
-        {
-          name: 'Hector',
-          info: 'poop',
-          status: 'no'
-        },
-      ]
+      guestList: []
     }
-    this.toggleView = this.toggleView.bind(this)
   }
+
+  componentDidMount(){
+     axios.get('https://topanga-backend.herokuapp.com/api/topanga/')
+      .then(res => {
+        console.log(res)
+        let list = [];
+        for (var i in res.data.guests) {
+          let obj = res.data.guests[i]
+
+          list.push(obj)
+          }
+        console.log(list)
+        
+        this.setState({guestList: list})
+        console.log(this.state)
+      })
+  }
+      
+    
 
   toggleView(view){
     this.setState({view: view})
@@ -67,15 +55,15 @@ class Admin extends Component{
                 {this.state.guestList.map((guest, i) => {
                   let status;
                   let color;
-                  if(guest.status === 'yes'){
+                  if(guest.rsvp.responded === 'yes'){
                     status = 'smile';
                     color = 'green';
                   }
-                  if(guest.status === 'no'){
+                  if(guest.rsvp.responded === 'no'){
                     status = 'frown';
                     color = 'red';
                   }
-                  if(guest.status === 'maybe'){
+                  if(guest.rsvp.responded === 'maybe'){
                     status = 'meh';
                     color = 'yellow'
                   }
@@ -86,7 +74,7 @@ class Admin extends Component{
                                 <Icon name='pencil'/>
                                 <Icon name='x'/>
                               </List.Content>
-                              <List.Content>{guest.name}</List.Content>
+                              <List.Content>{guest.firstName} {guest.lastName}</List.Content>
                             </List.Item>
                 })}
               </List>
@@ -97,8 +85,8 @@ class Admin extends Component{
                 <Header as='h3' textAlign='center'>EVENT INFO</Header>
                 <List>
                   <List.Item icon='building' content='House of God Chapel' />
-                  <List.Item icon='marker' content='568 Lords Way, Compton, CA' />
-                  <List.Item icon ='clock' content='4:30 p.m.'/>
+                  <List.Item icon='marker' content='231 Finish Ave, Seattle, WA' />
+                  <List.Item icon ='clock' content='5:00 p.m.'/>
                 </List>
               </Segment>
             </Grid.Column>
@@ -299,7 +287,7 @@ class Admin extends Component{
                 <Comment.Content>
                   <Comment.Author as='a'>Kaiser</Comment.Author>
                   <Comment.Metadata>
-                    <div>Today at 5:42PM</div>
+                    <div>Today at 8:35AM</div>
                   </Comment.Metadata>
                   <Comment.Text>I am so excited!!!!!</Comment.Text>
                   <Comment.Actions>
