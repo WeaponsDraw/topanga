@@ -7,6 +7,7 @@ import {
   Divider,
   GridRow
 } from 'semantic-ui-react'
+import axios from 'axios'
 
 class Registry extends Component {
   constructor(props) {
@@ -31,6 +32,16 @@ class Registry extends Component {
       ]
     }
   }
+
+  componentDidMount(){
+     axios.get('https://topanga-backend.herokuapp.com/api/topanga/')
+      .then(res => {
+        console.log(res)
+        this.setState({items: res.data.registry})
+        console.log(this.state)
+      })
+  }
+
   render() {
     return (
       <Fragment>
