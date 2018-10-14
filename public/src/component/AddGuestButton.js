@@ -11,7 +11,7 @@ class AddGuestButton extends Component {
       firstName: 'FirstName',
       lastName: 'LastName',
       phoneNumber: '',
-      weddingYear: 2018,
+      weddingYear: 2019,
       showQr: false,
     }
 

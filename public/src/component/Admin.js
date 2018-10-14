@@ -37,6 +37,7 @@ class Admin extends Component{
   toggleView(view){
     this.setState({view: view})
   }
+  
   render(){
     if(this.state.view === 'Event Site'){
       return(<EditSite toggleView={this.toggleView}/>)
