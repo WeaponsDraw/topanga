@@ -5,9 +5,13 @@ class NavBar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      activeItem: 'dashboard'
+      activeItem: 'Dashboard'
     }
-    this.handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    this.handleItemClick = (e, { name }) => {
+      this.setState({ activeItem: name })
+      this.props.toggleView(name)
+    }
+
   }
 
 
@@ -25,12 +29,12 @@ class NavBar extends Component {
         <Menu.Menu position='right'>
           <Menu.Item
             name='Dashboard'
-            active={activeItem === 'dashboard'}
+            active={activeItem === 'Dashboard'}
             onClick={this.handleItemClick}
           />
           <Menu.Item
             name='Event Site'
-            active={activeItem === 'eventsite'}
+            active={activeItem === 'Event Site'}
             onClick={this.handleItemClick}
           />
           <Menu.Item>
