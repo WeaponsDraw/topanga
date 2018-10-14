@@ -67829,7 +67829,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(AddGuestButton).call(this, props));
     _this.state = {
-      topangaApi: 'https://topanga.com/',
+      topangaApi: 'https://topanga-web.herokuapp.com/nalakaiser/rsvp/',
       firstName: 'FirstName',
       lastName: 'LastName',
       phoneNumber: '',
@@ -68556,10 +68556,7 @@ function (_Component) {
         }
       }), _react.default.createElement(_semanticUiReact.Grid.Row, {
         centered: true
-      }, _react.default.createElement(_semanticUiReact.Grid.Column, {
-        padded: true,
-        width: 8
-      }, _react.default.createElement(_semanticUiReact.Segment, {
+      }, _react.default.createElement(_semanticUiReact.Grid.Column, null, _react.default.createElement(_semanticUiReact.Segment, {
         raised: true
       }, _react.default.createElement(_semanticUiReact.Header, {
         textAlign: "center",
@@ -68728,7 +68725,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63098" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63199" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

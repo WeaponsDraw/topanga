@@ -9,7 +9,7 @@ class AddGuestButton extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      topangaApi: 'https://topanga.com/',
+      topangaApi: 'https://topanga-web.herokuapp.com/nalakaiser/rsvp/',
       firstName: 'FirstName',
       lastName: 'LastName',
       phoneNumber: '',
