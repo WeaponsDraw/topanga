@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 import { Button, Input, TextArea, Segment, Form, Header, Image, Modal, Grid, GridRow, GridColumn } from "semantic-ui-react";
 import QRCode from 'qrcode.react';
 
+import axios from 'axios'
+
 class AddGuestButton extends Component {
 
   constructor(props) {
@@ -22,8 +24,16 @@ class AddGuestButton extends Component {
   }
 
   onHandleSubmit() {
-
+    axios.post('https://topanga-backend.herokuapp.com/api/topanga/nalaKaizer2019/guest', {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      phoneNumber: this.state.phoneNumber,
+    })
+      .then(function (response) {
+        this.setState({ firstName: 'FirstName', lastName: 'LastName' })
+      })
   }
+
   render() {
     return (
       <Fragment>
@@ -31,7 +41,7 @@ class AddGuestButton extends Component {
           <Modal.Header>Add Guest</Modal.Header>
           <Modal.Content>
             <Segment>
-              <Form>
+              <Form onSubmit={this.onHandleSubmit}>
                 <Form.Group widths="equal">
                   <Form.Field
                     id="form-input-control-first-name"
@@ -81,8 +91,8 @@ class AddGuestButton extends Component {
                     <Header textAlign="center" as="h2">
                       Link
                       <Header.Subheader>
-                      {this.state.topangaApi + this.state.firstName + this.state.lastName + this.state.weddingYear}
-                    </Header.Subheader>
+                        {this.state.topangaApi + this.state.firstName + this.state.lastName + this.state.weddingYear}
+                      </Header.Subheader>
                     </Header>
                   </GridColumn>
                 </GridRow>
