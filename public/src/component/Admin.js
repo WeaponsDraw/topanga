@@ -3,10 +3,12 @@ import { Button, Comment, Form, Header, Image, Grid, Segment, List, Icon, Input,
 
 import AddGuestButton from './AddGuestButton'
 import NavBar from './NavBar'
+import EditSite from './EditSite'
 class Admin extends Component{
   constructor(props) {
     super(props)
     this.state = {
+      view: 'Dashboard',
       user: this.props.user,
       guestList: [
         {
@@ -24,17 +26,41 @@ class Admin extends Component{
           info: 'poop',
           status: 'no'
         },
+        {
+          name: 'Molly',
+          info: 'poop',
+          status: 'maybe'
+        },
+        {
+          name: 'Jim',
+          info: 'poop',
+          status: 'yes'
+        },
+        {
+          name: 'Hector',
+          info: 'poop',
+          status: 'no'
+        },
       ]
     }
+    this.toggleView = this.toggleView.bind(this)
+  }
+
+  toggleView(view){
+    this.setState({view: view})
   }
   render(){
+    if(this.state.view === 'Event Site'){
+      return(<EditSite toggleView={this.toggleView}/>)
+    }else{
+
     return(
       <Fragment>
-        <NavBar/>
+        <NavBar toggleView={this.toggleView}/>
         <Grid columns={2} divided padded>
           <Grid.Row >
             <Grid.Column width={8}>
-              <Segment>
+              <Segment style={{overflow: 'auto', height: 200 }}>
                <Header textAlign='center' as='h3'>Guest List</Header>
                <AddGuestButton/> 
                <List divided verticalAlign='middle'>
@@ -67,7 +93,7 @@ class Admin extends Component{
               </Segment>
             </Grid.Column>
             <Grid.Column width={8}>
-              <Segment>
+              <Segment style={{height: 200}}>
                 <Header as='h3' textAlign='center'>EVENT INFO</Header>
                 <List>
                   <List.Item icon='building' content='House of God Chapel' />
@@ -291,6 +317,7 @@ class Admin extends Component{
         </Grid>
       </Fragment>
     )
+    }
   }
 }
 
