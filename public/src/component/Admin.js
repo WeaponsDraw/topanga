@@ -13,6 +13,7 @@ class Admin extends Component{
       user: this.props.user,
       guestList: []
     }
+    this.toggleView = this.toggleView.bind(this)
   }
 
   componentDidMount(){
