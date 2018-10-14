@@ -9,6 +9,7 @@
     "watch-semantic": "cd semantic && yarn run build-semantic && gulp watch"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-plugin-autobind-class-methods": "^5.0.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
