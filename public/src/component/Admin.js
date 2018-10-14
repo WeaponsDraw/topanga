@@ -4,47 +4,35 @@ import { Button, Comment, Form, Header, Image, Grid, Segment, List, Icon, Input,
 import AddGuestButton from './AddGuestButton'
 import NavBar from './NavBar'
 import EditSite from './EditSite'
+import axios from 'axios'
 class Admin extends Component{
   constructor(props) {
     super(props)
     this.state = {
       view: 'Dashboard',
       user: this.props.user,
-      guestList: [
-        {
-          name: 'Molly',
-          info: 'poop',
-          status: 'maybe'
-        },
-        {
-          name: 'Jim',
-          info: 'poop',
-          status: 'yes'
-        },
-        {
-          name: 'Hector',
-          info: 'poop',
-          status: 'no'
-        },
-        {
-          name: 'Molly',
-          info: 'poop',
-          status: 'maybe'
-        },
-        {
-          name: 'Jim',
-          info: 'poop',
-          status: 'yes'
-        },
-        {
-          name: 'Hector',
-          info: 'poop',
-          status: 'no'
-        },
-      ]
+      guestList: []
     }
-    this.toggleView = this.toggleView.bind(this)
   }
+
+  componentDidMount(){
+     axios.get('https://topanga-backend.herokuapp.com/api/topanga/')
+      .then(res => {
+        console.log(res)
+        let list = [];
+        for (var i in res.data.guests) {
+          let obj = res.data.guests[i]
+
+          list.push(obj)
+          }
+        console.log(list)
+        
+        this.setState({guestList: list})
+        console.log(this.state)
+      })
+  }
+      
+    
 
   toggleView(view){
     this.setState({view: view})
@@ -86,7 +74,7 @@ class Admin extends Component{
                                 <Icon name='pencil'/>
                                 <Icon name='x'/>
                               </List.Content>
-                              <List.Content>{guest.name}</List.Content>
+                              <List.Content>{guest.firstName} {guest.lastName}</List.Content>
                             </List.Item>
                 })}
               </List>
