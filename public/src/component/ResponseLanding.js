@@ -55,7 +55,7 @@ class ResponseLanding extends Component {
         <Grid>
           <Grid.Row style={{ height: '30vh' }}></Grid.Row>
           <Grid.Row centered>
-            <Grid.Column padded width={8}>
+            <Grid.Column>
               <Segment raised>
                 <Header textAlign="center" as="h2">
                   We would love to see you there!
